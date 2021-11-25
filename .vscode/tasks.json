@@ -1,0 +1,26 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "shell",
+			"command": "dart",
+			"args": [
+				"${workspaceFolder}/src/main.dart"
+			],
+			"label": "dart_main",
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		},
+
+		{
+			"type": "shell",
+			"command": "dart",
+			"args": [
+				"${file}"
+			],
+			"label": "dart_run_file",
+		}
+	]
+}
