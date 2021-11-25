@@ -1,0 +1,44 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "created directory build",
+            "type": "shell",
+            "command": "mkdir",
+            "args": [
+                "-p",
+                "/tmp/vscode/cpp/${workspaceFolderBasename}/build/bin",
+            ]
+        },
+        {
+            "label": "build c++",
+            "type": "shell",
+            "dependsOn": [
+                "created directory build"
+            ],
+            "command": "g++",
+            "args": [
+                "-std=c++20",
+                // "-pthread",
+                "./src/**.cpp",
+                "-o",
+                "/tmp/vscode/cpp/${workspaceFolderBasename}/build/bin/main",
+            ]
+        },
+        {
+            "label": "running c++",
+            "type": "shell",
+            "command": "/tmp/vscode/cpp/${workspaceFolderBasename}/build/bin/main",
+            "args": [
+                "my-args"
+            ],
+            "dependsOn": [
+                "build c++"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}
