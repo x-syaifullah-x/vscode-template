@@ -1,0 +1,30 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build go",
+            "type": "shell",
+            "command": [
+                "go",
+                "build",
+                "-o",
+                "/tmp/vscode/golang/${workspaceFolderBasename}/build/bin/out",
+                "${workspaceFolder}/src"
+            ]
+        },
+        {
+            "label": "running go",
+            "type": "shell",
+            "dependsOn": [
+                "build go"
+            ],
+            "command": [
+                "/tmp/vscode/golang/${workspaceFolderBasename}/build/bin/out",
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}
