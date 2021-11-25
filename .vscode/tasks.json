@@ -1,0 +1,32 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "java",
+			"mainClass": "src.Main",
+			"targetPath": "/tmp/vscode/java/${workspaceFolderBasename}/build/jar/${workspaceFolderBasename}.jar",
+			"elements": [
+				"${compileOutput}",
+				"${dependencies}"
+			],
+			"problemMatcher": [],
+			"label": "java: exportjar:jvm"
+		},
+		{
+			"label": "run java",
+			"dependsOn": [
+				"java: exportjar:jvm"
+			],
+			"type": "shell",
+			"command": [
+				"java",
+				"-jar",
+				"/tmp/vscode/java/${workspaceFolderBasename}/build/jar/${workspaceFolderBasename}.jar"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		}
+	]
+}
