@@ -1,0 +1,29 @@
+plugins {
+    id "application"
+}
+
+group = "id.xxx.started"
+version = "1.0"
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation "junit:junit:4.13.2"
+}
+
+application {
+    mainClass = "started.App"
+}
+
+jar {
+    manifest {
+        attributes["Main-Class"] = application.mainClass
+    }
+}
+
+compileJava {
+    sourceCompatibility = "1.8"
+    targetCompatibility = "1.8"
+}
