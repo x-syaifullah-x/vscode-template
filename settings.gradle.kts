@@ -1,0 +1,1 @@
+rootProject.name = "started-project-java-kotlin-with-gradle"
